@@ -180,23 +180,36 @@
   .my_messages_list{
     list-style: none;
   }
-  .my_received_message{
+  .my_messages_left{
     display: flex;
     justify-content: flex-start;
   }
-  .my_send_message{
+  .my_messages_right{
     display: flex;
     justify-content: flex-end;
   }
-  .my_mess_text{
-    background: #F7FCF6;
+  .my_mess_received{
+    background-color: #fff;
     padding: 10px;
     border-radius: 10px;
-    margin: 20px 0px;
+    margin: 20px 0;
+    max-width: 70%;
+    word-break: break-all;
   }
-
-
-
-
-
+  .my_mess_send{
+    background-color: #d5f9ba;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px 0;
+    max-width: 70%;
+    word-break: break-all;
+  }
+  .my_mess{
+    display: inline;
+  }
+  .my_hour{
+    margin-left: 10px;
+    text-align: right;
+    color: #bfc2c4;
+  }
 /* elements styles end */
