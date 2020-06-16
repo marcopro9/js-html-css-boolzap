@@ -1,7 +1,65 @@
 /* reset */
-*{
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-/* fine reset */
+  *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+/* reset end */
+
+/* background */
+  .my_background{
+    height: 100vh;
+    padding: 25px 0;
+    background: rgb(216,219,214);
+    background: -moz-linear-gradient(0deg, rgba(216,219,214,1) 85%, rgba(0,150,136,1) 85%, rgba(0,150,136,1) 100%);
+    background: -webkit-linear-gradient(0deg, rgba(216,219,214,1) 85%, rgba(0,150,136,1) 85%, rgba(0,150,136,1) 100%);
+    background: linear-gradient(0deg, rgba(216,219,214,1) 85%, rgba(0,150,136,1) 85%, rgba(0,150,136,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d8dbd6",endColorstr="#009688",GradientType=1);
+  }
+/* background end */
+
+
+  .my_sidebar{
+    width: 400px;
+    height: 95vh;
+    background-color: #fff;
+    float: left;
+  }
+  .my_sidebar > .my_header{
+    height: 75px;
+    background-color: #eaeaea;
+    border-right: 1px solid #d6d6d6;
+  }
+  .my_sidebar > .my_notification_bar{
+    height: 85px;
+    background-color: #8edafc;
+  }
+  .my_sidebar > .my_search_bar{
+    height: 60px;
+    background-color: #fafafa;
+    border-right: 1px solid #d6d6d6;
+  }
+  .my_sidebar > .my_chats{
+    height: calc(95vh - 220px);
+    background-color: #fff;
+    border-right: 1px solid #d6d6d6;
+    overflow-y: auto;
+  }
+  .my_main_content{
+    width: calc(100% - 400px);
+    background-image: url(../img/mine.jpg);
+    height: 95vh;
+    float: left;
+  }
+  .my_main_content > .my_chat_person{
+    height: 75px;
+    background-color: #eaeaea;
+  }
+  .my_main_content > .my_chat{
+    height: calc(95vh - 150px);
+    overflow-y: auto;
+  }
+  .my_main_content > .my_message{
+    height: 75px;
+    background-color: #f3eeea;
+  }
