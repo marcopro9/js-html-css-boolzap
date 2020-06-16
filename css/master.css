@@ -6,6 +6,42 @@
   }
 /* reset end */
 
+/* typography */
+  *{
+    font-family: 'Lato', sans-serif;
+  }
+  a {
+    color: inherit;
+  }
+  a:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+  h1{
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+  h2{
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+  .my_last_access{
+    font-size: 14px;
+    color: #6d7578;
+  }
+  .my_subtitle{
+    color: #bfc2c4;
+    font-weight: 700;
+    margin: 0;
+  }
+  sup {
+    color: #bfc2c4;
+    font-weight: 700;
+  }
+/* typography end */
+
 /* background */
   .my_background{
     height: 100vh;
@@ -18,7 +54,7 @@
   }
 /* background end */
 
-
+/* sidebar layout */
   .my_sidebar{
     width: 400px;
     height: 95vh;
@@ -29,22 +65,29 @@
     height: 75px;
     background-color: #eaeaea;
     border-right: 1px solid #d6d6d6;
+    padding: 10px;
   }
   .my_sidebar > .my_notification_bar{
     height: 85px;
     background-color: #8edafc;
+    padding: 15px;
   }
   .my_sidebar > .my_search_bar{
-    height: 60px;
+    height: 50px;
     background-color: #fafafa;
     border-right: 1px solid #d6d6d6;
+    padding: 8px;
   }
   .my_sidebar > .my_chats{
     height: calc(95vh - 220px);
     background-color: #fff;
     border-right: 1px solid #d6d6d6;
     overflow-y: auto;
+    overflow-x: hidden;
   }
+/* sidebar layout end */
+
+/* main content layout */
   .my_main_content{
     width: calc(100% - 400px);
     background-image: url(../img/mine.jpg);
@@ -54,12 +97,106 @@
   .my_main_content > .my_chat_person{
     height: 75px;
     background-color: #eaeaea;
+    padding: 10px;
+  }
+  .my_title_subtitle{
+    margin-left: 10px;
+    padding-top: 7px;
   }
   .my_main_content > .my_chat{
     height: calc(95vh - 150px);
     overflow-y: auto;
+    padding: 30px 0;
+    margin: 0 20px;
   }
   .my_main_content > .my_message{
     height: 75px;
     background-color: #f3eeea;
+    padding-top: 12px;
   }
+  .my_col{
+    padding: 0;
+  }
+/* main content layout end */
+
+/* elements styles */
+  .my_profile_img{
+    height: 55px;
+    border-radius: 50%;
+  }
+  .my_icon{
+    color: #b1b1b1;
+    font-size: 25px;
+    margin: 15px 10px 0;
+  }
+  .my_icon_darker{
+    color: #6b7376;
+    margin-top: 12px;
+  }
+  .my_bell{
+    font-size: 20px;
+    background-color: #f2fbff;
+    padding: 16px;
+    border-radius: 50%;
+    color: #8edafc;
+  }
+  .my_link{
+    color: #4f7485;
+    text-decoration: underline;
+    font-size: 15px;
+  }
+  .my_row{
+    background-color: #fff;
+    padding: 4px;
+    border-radius: 5px;
+    box-shadow:0px 0px 2px #C5DBDA;
+  }
+  .my_search{
+    font-size: 18px;
+    margin: 0 10px;
+    color: #b1b1b1;
+  }
+  .my_input{
+    width: calc(100% - 44px);
+    border: none;
+  }
+  .my_chat_element{
+    padding: 15px;
+    border-bottom: 1px solid #d6d6d6;
+  }
+  .my_chat_element:hover{
+    background-color: #e9ebeb;
+  }
+  .my_active{
+    background-color: #e9ebeb;
+  }
+  .my_message_input{
+    width: 100%;
+    height: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 5px;
+  }
+  .my_messages_list{
+    list-style: none;
+  }
+  .my_received_message{
+    display: flex;
+    justify-content: flex-start;
+  }
+  .my_send_message{
+    display: flex;
+    justify-content: flex-end;
+  }
+  .my_mess_text{
+    background: #F7FCF6;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px 0px;
+  }
+
+
+
+
+
+/* elements styles end */
