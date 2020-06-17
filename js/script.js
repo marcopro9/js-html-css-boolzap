@@ -25,6 +25,30 @@ $(document).ready(
         $('.my_message_input').val('');
         // come aggiungo messaggi lo scroll segue i messaggi automaticamente.
         $('.my_chatbox').scrollTop($('.my_chatbox').height());
+        //funzione di risposta automatica ok
+        rispOk(1);
+        function rispOk(attesa){
+          //creo una variabile di countdown a cui assegno un intervallo
+          var countdownSecondi = setInterval(
+          // funzione per l'intervallo...
+          function(){
+            // ...se l'attesa arriva a 0 ...
+            if (attesa === 0) {
+              clearInterval(countdownSecondi);
+              //...scrivi ok sul messaggio di template...
+              $('.my_template .my_received_message .my_text').text('ok');
+              //...aggiungi l'ora corrente al messagio di template...
+              $('.my_template .my_received_message .my_text .my_hour').text(oraCorrente);
+              //...attacca l'ora corrente al messaggio di template..
+              $('.my_template .my_sent_message .my_text').append('<sub>' + oraCorrente + '</sub>');
+              //...clona il messaggio di template e lo attacca alla chat...
+              $('.my_template .my_received_message').clone().appendTo('.my_chat');
+            }  else {
+              //...altrimenti fa continuare il countdown
+                attesa--;
+              }
+          }, 1000);
+        }
       }
     })
   }

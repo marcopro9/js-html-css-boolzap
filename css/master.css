@@ -200,10 +200,10 @@
     max-width: 70%;
     word-break: break-all;
   }
-  .my_sent_message p {
+  .my_sent_message > p {
     background-color: #d5f9ba;
   }
-  .my_received_message p{
+  .my_received_message > p{
     background-color: #fff;
   }
   .my_template{
