@@ -46,7 +46,7 @@ $(document).ready(
               //...aggiungi l'ora corrente al messagio di template...
               $('.my_template .my_received_message .my_text .my_hour').text(oraCorrente);
               //...attacca l'ora corrente al messaggio di template..
-              $('.my_template .my_sent_message .my_text').append('<sub>' + oraCorrente + '</sub>');
+              $('.my_template .my_received_message .my_text').append('<sub>' + oraCorrente + '</sub>');
               //...clona il messaggio di template e lo attacca alla chat...
               $('.my_template .my_received_message').clone().appendTo('.my_chat');
             }  else {
