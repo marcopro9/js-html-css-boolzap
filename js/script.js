@@ -1,13 +1,19 @@
 //attendo il caricamento del documento
 $(document).ready(
   function (){
+    // vado a prendere l'ora da inserire affianco il messaggio...
     var time = new Date();
+    // ...prendo solo ore e minuti...
     var ore = time.getHours()
     var minuti = time.getMinutes().toString();
+    //...passo i minuti come stringa e se la lunghezza della stringa è minore di 2...
     if (minuti.toString().length < 2) {
+      // faccio aggiungere uno 0
       minuti = '0'+ minuti;
     }
+    // risultato
     var oraCorrente = ore + ':' + minuti;
+
     // prendo l'elemento my_message_input e al keypress faccio partire una funzione
     $('.my_message_input').keypress(function() {
       // se viene premuto il tasto invio (13)...
@@ -50,6 +56,17 @@ $(document).ready(
           }, 1000);
         }
       }
-    })
+    });
+    // SEARCH BAR
+    // seleziona my_input e al keyup parte la funzione...
+    $(".my_input").on("keyup", function() {
+    // ...il valore dell'input viene forzato a diventare minuscolo
+    var value = $(this).val().toLowerCase();
+    // seleziona l'elemento ul>li filtra e fa partire la funzione...
+    $(".my_chat_list .my_chat_element").filter(function() {
+      //...gli elementi li vengono attivati/disattivati, il testo va in minuscolo e cerca tra gli li
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
   }
 );
