@@ -191,6 +191,10 @@
   .my_sent_message{
     display: flex;
     justify-content: flex-end;
+    position: relative;
+  }
+  .my_received_message{
+    position: relative;
   }
   .my_chat li > p {
     display: inline-block;
@@ -208,6 +212,18 @@
   }
   .my_template{
     display: none;
+  }
+  .my_hidden{
+    display: none;
+  }
+  .my_dropdown_received, .my_dropdown_sent{
+    position: absolute;
+    background-color: #fff;
+    bottom: -25px;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 13px;
+    z-index: 1;
   }
   sub{
     margin-left: 10px;
