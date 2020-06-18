@@ -196,6 +196,9 @@
   .my_received_message{
     position: relative;
   }
+  .my_arrow{
+    cursor: pointer;
+  }
   .my_chat li > p {
     display: inline-block;
     padding: 12px 10px;
@@ -203,12 +206,20 @@
     border-radius: 15px;
     max-width: 70%;
     word-break: break-all;
+    word-wrap: break-word;
   }
   .my_sent_message > p {
     background-color: #d5f9ba;
   }
   .my_received_message > p{
     background-color: #fff;
+  }
+  .my_arrow{
+    display: none;
+  }
+  .my_received_message p:hover .my_arrow,
+  .my_sent_message p:hover .my_arrow{
+    display:inline;
   }
   .my_template{
     display: none;

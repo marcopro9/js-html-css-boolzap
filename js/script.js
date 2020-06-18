@@ -30,6 +30,7 @@ $(document).ready(
           var messaggioUtente = $('.my_template .my_sent_message .my_text');
           var orarioCorrente = $('.my_template .my_sent_message .my_text .my_hour');
           var messaggioInviato = $('.my_template .my_sent_message');
+          var dropdownMessInviati = $('.my_template .my_sent_message .my_dropdown_sent')
           var chatBox = $('.my_chatbox');
           // ...il valore di "my_message_input", inserito nella variabile,...
           var valoreMessaggio =  $(this).val();
@@ -37,13 +38,15 @@ $(document).ready(
           messaggioUtente.text(valoreMessaggio);
           // ...contestualmente si inserisce l'ora all'interno di my_text...
           orarioCorrente.text(orario());
-          messaggioUtente.append('<sub>' + orario() + '</sub>');
+          messaggioUtente.append('<sub><i class="my_arrow fas fa-chevron-down"></i>' + orario() + '</sub>');
           // ...poi viene clonato il messaggio nel template e attaccato alla ul "my_chat"...
           messaggioInviato.clone().appendTo('.my_chat');
+          //...qui attacca anche il dropdown nel messaggio inviato...
+          messaggioInviato.append(dropdownMessInviati);
           // ...dopodichè il valore di "my_message_input" torna ad essere vuoto
           inputMessaggio.val('');
           // come aggiungo messaggi lo scroll segue i messaggi automaticamente.
-          chatBox.scrollTop($(this).height());
+          chatBox.scrollTop($(this).prop('scrollHeight'));
           //funzione di risposta automatica ok
           rispOk(1);
           function rispOk(attesa){
@@ -58,12 +61,15 @@ $(document).ready(
                   var valoreMessaggioBot = $('.my_template .my_received_message .my_text');
                   var orarioCorrenteBot = $('.my_template .my_received_message .my_text .my_hour');
                   var messaggioRicevuto = $('.my_template .my_received_message');
+                  var dropdownMessRicevuti = $('.my_template .my_received_message .my_dropdown_received')
                   //...scrivi ok sul messaggio di template...
                   valoreMessaggioBot.text('ok');
                   //...aggiungi l'ora corrente al messagio di template...
                   orarioCorrenteBot.text(orario());
                   //...attacca l'ora corrente al messaggio di template..
-                  valoreMessaggioBot.append('<sub>' + orario() + '</sub>');
+                  valoreMessaggioBot.append('<sub> <i class="my_arrow fas fa-chevron-down"></i>' + orario() + '</sub>');
+                  //...qui attacca anche il dropdown nel messaggio ricevuto...
+                  messaggioRicevuto.append(dropdownMessRicevuti);
                   //...clona il messaggio di template e lo attacca alla chat...
                   messaggioRicevuto.clone().appendTo('.my_chat');
                 } else {
@@ -95,25 +101,32 @@ $(document).ready(
       });
     }
 
-    //funzione per eliminare il messaggio
-    $('.my_arrow_received').click(
-    function () {
-    $('.my_dropdown_received').toggle();
-    });
-
-    $('.my_arrow_sent').click(
-    function () {
-    $('.my_dropdown_sent').toggle();
-    });
-
-    // All click su "elimina messaggio" - elimino tutto il mesaggio
-    $('.my_delete_received').click(
+    //FUNZIONE MOSTRA DROPDOWN
+    mostraDropdown();
+    function mostraDropdown(){
+      var freccia = $('.my_arrow');
+      freccia.click(
       function () {
-        $('.my_received_message').remove();
-    });
-    $('.my_delete_sent').click(
+        $(this).parent('sub').parent('p').siblings('.my_dropdown_received').toggle();
+      });
+
+      freccia.click(
       function () {
-        $('.my_sent_message').remove();
-    });
+        $(this).parent('sub').parent('p').siblings('.my_dropdown_sent').toggle();
+      });
+    }
+
+    // FUNZIONE ELIMINA MESSAGGIO
+    eliminaMessaggio();
+    function eliminaMessaggio(){
+      $('.my_delete').click(
+        function () {
+          $(this).parent('.my_dropdown_received').parent('.my_received_message').remove();
+      });
+      $('.my_delete').click(
+        function () {
+          $(this).parent('.my_dropdown_sent').parent('.my_sent_message').remove();
+      });
+    }
   }
 );
