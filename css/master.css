@@ -227,7 +227,10 @@
   .my_hidden{
     display: none;
   }
-  .my_dropdown_received, .my_dropdown_sent{
+  .my_visible{
+    display: block;
+  }
+  .my_dropdown{
     position: absolute;
     background-color: #fff;
     bottom: -25px;

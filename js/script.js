@@ -30,7 +30,7 @@ $(document).ready(
           var messaggioUtente = $('.my_template .my_sent_message .my_text');
           var orarioCorrente = $('.my_template .my_sent_message .my_text .my_hour');
           var messaggioInviato = $('.my_template .my_sent_message');
-          var dropdownMessInviati = $('.my_template .my_sent_message .my_dropdown_sent')
+          var dropdownMessInviati = $('.my_template .my_sent_message .my_dropdown')
           var chatBox = $('.my_chatbox');
           // ...il valore di "my_message_input", inserito nella variabile,...
           var valoreMessaggio =  $(this).val();
@@ -61,7 +61,7 @@ $(document).ready(
                   var valoreMessaggioBot = $('.my_template .my_received_message .my_text');
                   var orarioCorrenteBot = $('.my_template .my_received_message .my_text .my_hour');
                   var messaggioRicevuto = $('.my_template .my_received_message');
-                  var dropdownMessRicevuti = $('.my_template .my_received_message .my_dropdown_received')
+                  var dropdownMessRicevuti = $('.my_template .my_received_message .my_dropdown')
                   //...scrivi ok sul messaggio di template...
                   valoreMessaggioBot.text('ok');
                   //...aggiungi l'ora corrente al messagio di template...
@@ -106,8 +106,7 @@ $(document).ready(
     function mostraDropdown(){
       $(document).on('click','.my_arrow',
       function () {
-        $(this).parent('sub').parent('p').siblings('.my_dropdown_received').toggle();
-        $(this).parent('sub').parent('p').siblings('.my_dropdown_sent').toggle();
+        $(this).parent('sub').parent('p').siblings('.my_dropdown').toggle();
       });
     }
 
@@ -116,9 +115,26 @@ $(document).ready(
     function eliminaMessaggio(){
       $(document).on('click','.my_delete',
         function () {
-          $(this).parent('.my_dropdown_received').parent('.my_received_message').remove();
-          $(this).parent('.my_dropdown_sent').parent('.my_sent_message').remove();
+          $(this).parent('.my_dropdown').parent('.my_received_message').remove();
+          $(this).parent('.my_dropdown').parent('.my_sent_message').remove();
       })
+    }
+
+    //FUNZIONE CAMBIO FINESTRA CHAT
+    cambioChat()
+    function cambioChat(){
+      //al click sul contatto nella lista...
+      $('.my_chats .my_chat_list .my_chat_element').click(
+        function(){
+          //...prende l'attributo dell'elemento cliccato in lista contatti...
+          var contact = $(this).attr('data-contact');
+          //...lo aggiunge a una variabile che lo associa alla chat che ha lo stesso valore nell'attributo...
+          var select ='.my_chatbox[data-chat="' + contact + '"]'
+          // ...dopodichè aggiunge my_hidden a tutte le chat e lascia visibile solo quella del contatto cliccato
+          $('.my_chatbox').addClass('my_hidden');
+          $(select).removeClass('my_hidden');
+        }
+      );
     }
   }
 );
