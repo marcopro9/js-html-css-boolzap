@@ -129,14 +129,17 @@ $(document).ready(
           //aggiunge la classe my_active all'elemento cliccato e la rimuove agli altri...
           $(this).addClass('my_active');
           $(this).siblings().removeClass('my_active')
-          //...prende l'attributo dell'elemento cliccato in lista contatti...
+          //...prende gli attributi dell'elemento cliccato in lista contatti...
           var contact = $(this).attr('data-contact');
-          //...lo aggiunge a una variabile che lo associa alla chat che ha lo stesso valore nell'attributo...
+          var immagine = $(this).find('img').attr('src');
+          var name = $(this).find('h2').text();
+          //... e cambia la chat in base ai valori degli attributi...
           var select ='.my_chatbox[data-chat="' + contact + '"]'
+          var currentAvatar = $('.my_chat_person').find('img').attr('src', immagine);
+          var currentName = $('.my_chat_person').find('h2').text(name)
           // ...dopodichè aggiunge my_hidden a tutte le chat e lascia visibile solo quella del contatto cliccato
           $('.my_chatbox').addClass('my_visible');
           $(select).siblings().removeClass('my_visible');
-
         }
       );
     }
