@@ -104,14 +104,9 @@ $(document).ready(
     //FUNZIONE MOSTRA DROPDOWN
     mostraDropdown();
     function mostraDropdown(){
-      var freccia = $('.my_arrow');
-      freccia.click(
+      $(document).on('click','.my_arrow',
       function () {
         $(this).parent('sub').parent('p').siblings('.my_dropdown_received').toggle();
-      });
-
-      freccia.click(
-      function () {
         $(this).parent('sub').parent('p').siblings('.my_dropdown_sent').toggle();
       });
     }
@@ -119,14 +114,11 @@ $(document).ready(
     // FUNZIONE ELIMINA MESSAGGIO
     eliminaMessaggio();
     function eliminaMessaggio(){
-      $('.my_delete').click(
+      $(document).on('click','.my_delete',
         function () {
           $(this).parent('.my_dropdown_received').parent('.my_received_message').remove();
-      });
-      $('.my_delete').click(
-        function () {
           $(this).parent('.my_dropdown_sent').parent('.my_sent_message').remove();
-      });
+      })
     }
   }
 );
