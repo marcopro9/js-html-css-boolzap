@@ -40,7 +40,7 @@ $(document).ready(
           orarioCorrente.text(orario());
           messaggioUtente.append('<sub><i class="my_arrow fas fa-chevron-down"></i>' + orario() + '</sub>');
           // ...poi viene clonato il messaggio nel template e attaccato alla ul "my_chat"...
-          messaggioInviato.clone().appendTo('.my_chat');
+          messaggioInviato.clone().appendTo('.my_visible .my_chat');
           //...qui attacca anche il dropdown nel messaggio inviato...
           messaggioInviato.append(dropdownMessInviati);
           // ...dopodichè il valore di "my_message_input" torna ad essere vuoto
@@ -71,7 +71,7 @@ $(document).ready(
                   //...qui attacca anche il dropdown nel messaggio ricevuto...
                   messaggioRicevuto.append(dropdownMessRicevuti);
                   //...clona il messaggio di template e lo attacca alla chat...
-                  messaggioRicevuto.clone().appendTo('.my_chat');
+                  messaggioRicevuto.clone().appendTo('.my_visible .my_chat');
                 } else {
                     //...altrimenti fa continuare il countdown
                     attesa--;
@@ -126,13 +126,17 @@ $(document).ready(
       //al click sul contatto nella lista...
       $('.my_chats .my_chat_list .my_chat_element').click(
         function(){
+          //aggiunge la classe my_active all'elemento cliccato e la rimuove agli altri...
+          $(this).addClass('my_active');
+          $(this).siblings().removeClass('my_active')
           //...prende l'attributo dell'elemento cliccato in lista contatti...
           var contact = $(this).attr('data-contact');
           //...lo aggiunge a una variabile che lo associa alla chat che ha lo stesso valore nell'attributo...
           var select ='.my_chatbox[data-chat="' + contact + '"]'
           // ...dopodichè aggiunge my_hidden a tutte le chat e lascia visibile solo quella del contatto cliccato
-          $('.my_chatbox').addClass('my_hidden');
-          $(select).removeClass('my_hidden');
+          $('.my_chatbox').addClass('my_visible');
+          $(select).siblings().removeClass('my_visible');
+
         }
       );
     }
