@@ -217,7 +217,7 @@
     display: none;
   }
   .my_received_message p:hover .my_arrow,
-  .my_sent_message p:hover .my_arrow{
+  .my_sent_message p:hover .my_arrow,{
     display:inline;
   }
   .my_template{

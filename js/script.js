@@ -46,7 +46,7 @@ $(document).ready(
           // ...dopodichè il valore di "my_message_input" torna ad essere vuoto
           inputMessaggio.val('');
           // come aggiungo messaggi lo scroll segue i messaggi automaticamente.
-          chatBox.scrollTop($(this).prop('scrollHeight'));
+          chatBox.scrollTop($('.my_chatbox').prop('scrollHeight'));
           //funzione di risposta automatica ok
           rispOk(1);
           function rispOk(attesa){
@@ -72,6 +72,8 @@ $(document).ready(
                   messaggioRicevuto.append(dropdownMessRicevuti);
                   //...clona il messaggio di template e lo attacca alla chat...
                   messaggioRicevuto.clone().appendTo('.my_visible .my_chat');
+                  // come aggiunge messaggi lo scroll segue i messaggi automaticamente.
+                  chatBox.scrollTop($('.my_chatbox').prop('scrollHeight'));
                 } else {
                     //...altrimenti fa continuare il countdown
                     attesa--;
